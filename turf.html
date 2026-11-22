@@ -257,6 +257,7 @@ body{background:var(--bg);color:var(--text);font-family:'JetBrains Mono',monospa
    of 100 the start screen was buried under the map on replay — and because the
    covering layers are pointer-events:none, the buttons stayed clickable while
    being invisible. Safe to sit this high: the overlay is display:none in play. */
+.back-gal{position:fixed;bottom:calc(12px + env(safe-area-inset-bottom));left:12px;z-index:3;display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:2px solid #fff;border-radius:8px;color:#fff;background:rgba(0,0,0,.45);font:800 15px/1 system-ui,sans-serif;letter-spacing:.04em;text-decoration:none}
 .faction-overlay{position:fixed;inset:0;z-index:7000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;overflow:hidden;
   background:
     radial-gradient(50% 60% at 15% 20%, rgba(224,178,60,0.16), transparent 60%),
@@ -375,7 +376,7 @@ body{background:var(--bg);color:var(--text);font-family:'JetBrains Mono',monospa
   .node-occ{font-size:9px;}
 
   /* start screens */
-  .faction-overlay{gap:16px;padding:20px 14px;justify-content:flex-start;padding-top:8vh;overflow-y:auto;}
+  .faction-overlay{gap:16px;padding:20px 14px;justify-content:flex-start;padding-top:3vh;overflow-y:auto;}
   .faction-overlay h1{font-size:22px;letter-spacing:3px;}
   .faction-overlay p{font-size:11px;padding:0 6px;}
   .faction-grid{gap:11px;}
@@ -1232,6 +1233,7 @@ body.finale .map-wrap{animation:finaleZoom 2.4s ease-out forwards;}
 <div class="toast-stack" id="toastStack"></div>
 
 <div class="faction-overlay" id="factionOverlay">
+  <a class="back-gal" href="./">‹ More Scarborough</a>
   <h1>SCARBOROUGH TURF</h1>
   <p id="stepBlurb">Five crews, twenty-one neighbourhoods, one city. Same stats, same income, same shot. Take corners, out-grow the scene, hold the majority.</p>
 
