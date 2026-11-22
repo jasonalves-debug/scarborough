@@ -105,7 +105,12 @@ footer p{font-size:14px;color:var(--mute);margin:18px 0 0}
         <div class="txt"><h3>Scarborough Turf</h3><p>Five food crews fight for 21 real neighbourhoods.</p><span class="tag">Phone · Daily</span></div>
         <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
       </a>
-        </div>
+      <a class="tile" href="stands.html">
+        <span class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 5v22M14 15l10-10 10 10"/><path d="M6 43h36M12 43c0-9 5-14 12-14s12 5 12 14"/></svg></span>
+        <div class="txt"><h3>Scarborough Stands</h3><p>Defend your neighbourhood from the sky. One night, four batteries.</p><span class="tag">Phone · 3D</span></div>
+        <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
   </section>
   <section aria-labelledby="g-data">
     <h2 class="label" id="g-data">Play + real data</h2>
@@ -123,7 +128,7 @@ footer p{font-size:14px;color:var(--mute);margin:18px 0 0}
 <footer>
   <div class="links">
     <a href="https://jasonalves-debug.github.io/gallery/">More from Jay →</a>
-    <a id="tip" href="#" target="_blank" rel="noopener" hidden>Buy me a coffee</a>
+    <a id="mail" href="#">Contact</a>
   </div>
   <p>Unofficial hobby projects built from public data. Not affiliated with the City of Toronto, TPS or TFS.</p>
 </footer>
@@ -131,11 +136,12 @@ footer p{font-size:14px;color:var(--mute);margin:18px 0 0}
 </div>
 <script>
 /* the one setting: your Buy Me a Coffee link. Leave blank to hide the button. */
-const TIP_URL = '';
-const tip = document.getElementById('tip');
-if (TIP_URL) { tip.href = TIP_URL; tip.hidden = false; }
-
-/* shrink any heading until its longest word fits, so a word never breaks across lines */
+// address is assembled only on click, so scrapers never see it in the page
+document.getElementById('mail').addEventListener('click',e=>{
+  e.preventDefault();
+  const p=['416','freeze'],d=['gmail','com'];
+  location.href='mail'+'to:'+p.join('')+String.fromCharCode(64)+d.join('.')+'?subject=Scarborough%20games';
+});
 function fitHeads(){
   document.querySelectorAll('.sign h1, .tile h3').forEach(el=>{
     if(!el.dataset.w){ el.innerHTML = el.textContent.split(' ').map(w=>'<span style="display:inline-block">'+w+'</span>').join(' '); el.dataset.w=1; }
